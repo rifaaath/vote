@@ -60,7 +60,7 @@ def register_post():
         error = True
 
     if roll_no:
-        flash('Roll number already exists','error')
+        flash('USN already exists','error')
         error = True
 
     if password1!=password2: # if passwords do not match, redirect
@@ -80,7 +80,7 @@ def register_post():
         error = True
     
     if not len(rollno) == 10:
-        flash('Roll Number is not valid. Should be 8 digits.','error')
+        flash('USN is not valid','error')
         error = True
     
     if error: 

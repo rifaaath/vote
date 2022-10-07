@@ -27,6 +27,17 @@ class VotesModel(db.Model):
     voter_id = db.Column(db.Integer, ForeignKey('users.id'))
     post_1 = db.Column(db.Integer, nullable=False )
     post_2 = db.Column(db.Integer, nullable=False)
+    post_3 = db.Column(db.Integer, nullable=False )
+    post_4 = db.Column(db.Integer, nullable=False)
+    post_5 = db.Column(db.Integer, nullable=False )
+    post_6 = db.Column(db.Integer, nullable=False)
+    post_7 = db.Column(db.Integer, nullable=False )
+    post_8 = db.Column(db.Integer, nullable=False)
+    post_9 = db.Column(db.Integer, nullable=False )
+    post_10 = db.Column(db.Integer, nullable=False)
+    post_11 = db.Column(db.Integer, nullable=False )
+    post_12 = db.Column(db.Integer, nullable=False)
+    post_13 = db.Column(db.Integer, nullable=False)
 
     def __repr__(self):
         return f"Voter('{self.roll_num}')"

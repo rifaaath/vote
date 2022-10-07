@@ -7,8 +7,6 @@ import string
 import json
 import random
 
-post_l = ["President", "Vice-President", "Secretary", "Cultural Head", "Techical Head"]
-
 @app.route("/")
 def index():
     return render_template("home.html")
@@ -16,20 +14,42 @@ def index():
 @app.route("/profile")
 @login_required
 def profile():
-    choice = [CandidateModel.query.filter_by(post=(i for i in post_l)).all()]
-    #prez = CandidateModel.query.filter_by(post="President").all()
-    #vice = CandidateModel.query.filter_by(post="Vice-President").all()
+    prez = CandidateModel.query.filter_by(post="President").all()
+    vice = CandidateModel.query.filter_by(post="Vice-President").all()
+    bc = CandidateModel.query.filter_by(post="Branch-Captain").all()
+    secretary = CandidateModel.query.filter_by(post="Secretary").all()
+    treasurer = CandidateModel.query.filter_by(post="Treasurer").all()
+    c_sec = CandidateModel.query.filter_by(post="Cultural-Secretary").all()
+    s_sec = CandidateModel.query.filter_by(post="Sports-Secretary").all()
+    t_sec = CandidateModel.query.filter_by(post="Techincal-Secretary").all()
+    creative = CandidateModel.query.filter_by(post="Creative-Head").all()
+    s_cord = CandidateModel.query.filter_by(post="SocialMedia-Coordinator").all()
+    p_cord = CandidateModel.query.filter_by(post="Photography-Coordinator").all()
+    graph = CandidateModel.query.filter_by(post="Graphic-Designer").all()
+    website = CandidateModel.query.filter_by(post="Website-Manager").all()
     voter = VotesModel.query.filter_by(roll_num=current_user.roll_num).first()
-    #return render_template("profile.html",name=current_user.name,prez=prez,vice=vice,voter=voter)
+    return render_template("profile.html",name=current_user.name,prez=prez,vice=vice,bc=bc,secretary=secretary,treasurer=treasurer,c_sec=c_sec,t_sec=t_sec,s_sec=s_sec,creative=creative,s_cord=s_cord,p_cord=p_cord,graph=graph,website=website,voter=voter)
     
 @app.route("/profile", methods=["POST"])
 def post_vote():
     president = request.form.get('president')
     vicepresident = request.form.get('vice-president')
+    bc = request.form.get('bc')
+    secretary = request.form.get('secretary')
+    treasurer = request.form.get('treasurer')
+    c_sec = request.form.get('c_sec')
+    s_sec = request.form.get('s_sec')
+    t_sec = request.form.get('t_sec')
+    creative = request.form.get('creative')
+    s_cord = request.form.get('s_cord')
+    p_cord = request.form.get('p_cord')
+    graph = request.form.get('graph')
+    website = request.form.get('website')
+    
 
     voted = VotesModel.query.filter_by(roll_num=current_user.roll_num).first()
     if not voted:
-        voter = VotesModel(roll_num=current_user.roll_num,voter_id=current_user.id,post_1=int(president),post_2=int(vicepresident))
+        voter = VotesModel(roll_num=current_user.roll_num,voter_id=current_user.id,post_1=int(president),post_2=int(vicepresident),post_3=int(bc),post_4=int(secretary),post_5=int(treasurer),post_6=int(c_sec),post_7=int(s_sec),post_8=int(t_sec),post_9=int(creative),post_10=int(s_cord),post_11=int(p_cord),post_12=int(graph),post_13=int(website))
         db.session.add(voter)
         db.session.commit()
         return redirect(url_for('profile'))
@@ -41,7 +61,19 @@ def post_vote():
 def candidate():
     prez = CandidateModel.query.filter_by(post="President").all()
     vice = CandidateModel.query.filter_by(post="Vice-President").all()
-    return render_template("candidate.html",prez=prez,vice=vice)
+    bc = CandidateModel.query.filter_by(post="Branch-Captain").all()
+    secretary = CandidateModel.query.filter_by(post="Secretary").all()
+    treasurer = CandidateModel.query.filter_by(post="Treasurer").all()
+    c_sec = CandidateModel.query.filter_by(post="Cultural-Secretary").all()
+    s_sec = CandidateModel.query.filter_by(post="Sports-Secretary").all()
+    t_sec = CandidateModel.query.filter_by(post="Techincal-Secretary").all()
+    creative = CandidateModel.query.filter_by(post="Creative-Head").all()
+    s_cord = CandidateModel.query.filter_by(post="SocialMedia-Coordinator").all()
+    p_cord = CandidateModel.query.filter_by(post="Photography-Coordinator").all()
+    graph = CandidateModel.query.filter_by(post="Graphic-Designer").all()
+    website = CandidateModel.query.filter_by(post="Website-Manager").all()
+
+    return render_template("candidate.html",prez=prez,vice=vice,bc=bc,secretary=secretary,treasurer=treasurer,c_sec=c_sec,t_sec=t_sec,s_sec=s_sec,creative=creative,s_cord=s_cord,p_cord=p_cord,graph=graph,website=website)
 
 @app.route("/candidate_register")
 @login_required
@@ -69,8 +101,8 @@ def candidate_post():
     cand = CandidateModel.query.filter_by(roll_num = roll_num).first()
 
     error = False
-
-    if not (roll_no) == 10:
+    print(roll_no)
+    if not len(roll_no.roll_num) == 10:
         flash('Roll Number is not valid. Should be 8 digits.','error')
         error = True
 
@@ -107,10 +139,43 @@ def candidate_post():
 def live_result():
     prez = CandidateModel.query.filter_by(post="President").all()
     vice = CandidateModel.query.filter_by(post="Vice-President").all()
+    bc = CandidateModel.query.filter_by(post="Branch-Captain").all()
+    secretary = CandidateModel.query.filter_by(post="Secretary").all()
+    treasurer = CandidateModel.query.filter_by(post="Treasurer").all()
+    c_sec = CandidateModel.query.filter_by(post="Cultural-Secretary").all()
+    s_sec = CandidateModel.query.filter_by(post="Sports-Secretary").all()
+    t_sec = CandidateModel.query.filter_by(post="Techincal-Secretary").all()
+    creative = CandidateModel.query.filter_by(post="Creative-Head").all()
+    s_cord = CandidateModel.query.filter_by(post="SocialMedia-Coordinator").all()
+    p_cord = CandidateModel.query.filter_by(post="Photography-Coordinator").all()
+    graph = CandidateModel.query.filter_by(post="Graphic-Designer").all()
+    website = CandidateModel.query.filter_by(post="Website-Manager").all()
     labels=[]
     data=[]
     labels1=[]
     data1=[]
+    labels2=[]
+    data2=[]
+    labels3=[]
+    data3=[]
+    labels4=[]
+    data4=[]
+    labels5=[]
+    data5=[]
+    labels6=[]
+    data6=[]
+    labels7=[]
+    data7=[]
+    labels8=[]
+    data8=[]
+    labels9=[]
+    data9=[]
+    labels10=[]
+    data10=[]
+    labels11=[]
+    data11=[]
+    labels12=[]
+    data12=[]
     for candidate in prez:
         name = candidate.first_name+" "+candidate.last_name
         labels.append(name)
@@ -121,8 +186,63 @@ def live_result():
         labels1.append(name)
         vote=VotesModel.query.filter(VotesModel.post_2==candidate.roll_num).count()
         data1.append(vote)
+    for candidate in bc:
+        name = candidate.first_name+" "+candidate.last_name
+        labels2.append(name)
+        vote=VotesModel.query.filter(VotesModel.post_3==candidate.roll_num).count()
+        data2.append(vote)
+    for candidate in secretary:
+        name = candidate.first_name+" "+candidate.last_name
+        labels3.append(name)
+        vote=VotesModel.query.filter(VotesModel.post_4==candidate.roll_num).count()
+        data3.append(vote)
+    for candidate in treasurer:
+        name = candidate.first_name+" "+candidate.last_name
+        labels4.append(name)
+        vote=VotesModel.query.filter(VotesModel.post_5==candidate.roll_num).count()
+        data4.append(vote)
+    for candidate in c_sec:
+        name = candidate.first_name+" "+candidate.last_name
+        labels5.append(name)
+        vote=VotesModel.query.filter(VotesModel.post_6==candidate.roll_num).count()
+        data5.append(vote)
+    for candidate in s_sec:
+        name = candidate.first_name+" "+candidate.last_name
+        labels6.append(name)
+        vote=VotesModel.query.filter(VotesModel.post_7==candidate.roll_num).count()
+        data6.append(vote)
+    for candidate in t_sec:
+        name = candidate.first_name+" "+candidate.last_name
+        labels7.append(name)
+        vote=VotesModel.query.filter(VotesModel.post_8==candidate.roll_num).count()
+        data7.append(vote)
+    for candidate in creative:
+        name = candidate.first_name+" "+candidate.last_name
+        labels8.append(name)
+        vote=VotesModel.query.filter(VotesModel.post_9==candidate.roll_num).count()
+        data8.append(vote)
+    for candidate in s_cord:
+        name = candidate.first_name+" "+candidate.last_name
+        labels9.append(name)
+        vote=VotesModel.query.filter(VotesModel.post_10==candidate.roll_num).count()
+        data9.append(vote)
+    for candidate in p_cord:
+        name = candidate.first_name+" "+candidate.last_name
+        labels10.append(name)
+        vote=VotesModel.query.filter(VotesModel.post_11==candidate.roll_num).count()
+        data10.append(vote)
+    for candidate in graph:
+        name = candidate.first_name+" "+candidate.last_name
+        labels11.append(name)
+        vote=VotesModel.query.filter(VotesModel.post_12==candidate.roll_num).count()
+        data11.append(vote)
+    for candidate in website:
+        name = candidate.first_name+" "+candidate.last_name
+        labels12.append(name)
+        vote=VotesModel.query.filter(VotesModel.post_13==candidate.roll_num).count()
+        data12.append(vote)
  
-    return render_template('graph.html',labels=labels,data=data,labels1=labels1,data1=data1)
+    return render_template('graph.html',labels=labels,data=data,labels1=labels1,data1=data1,labels2=labels2,data2=data2,labels3=labels3,data3=data3,labels4=labels4,data4=data4,labels5=labels5,data5=data5,labels6=labels6,data6=data6,labels7=labels7,data7=data7,labels8=labels8,data8=data8,labels9=labels9,data9=data9,labels10=labels10,data10=data10,labels11=labels11,data11=data11,labels12=labels12,data12=data12)
 
 
 @app.route("/vote/count")
@@ -130,10 +250,43 @@ def live_result():
 def voteCount():
     prez = CandidateModel.query.filter_by(post="President").all()
     vice = CandidateModel.query.filter_by(post="Vice-President").all()
+    bc = CandidateModel.query.filter_by(post="Branch-Captain").all()
+    secretary = CandidateModel.query.filter_by(post="Secretary").all()
+    treasurer = CandidateModel.query.filter_by(post="Treasurer").all()
+    c_sec = CandidateModel.query.filter_by(post="Cultural-Secretary").all()
+    s_sec = CandidateModel.query.filter_by(post="Sports-Secretary").all()
+    t_sec = CandidateModel.query.filter_by(post="Techincal-Secretary").all()
+    creative = CandidateModel.query.filter_by(post="Creative-Head").all()
+    s_cord = CandidateModel.query.filter_by(post="SocialMedia-Coordinator").all()
+    p_cord = CandidateModel.query.filter_by(post="Photography-Coordinator").all()
+    graph = CandidateModel.query.filter_by(post="Graphic-Designer").all()
+    website = CandidateModel.query.filter_by(post="Website-Manager").all()
     labels=[]
     data=[]
     labels1=[]
     data1=[]
+    labels2=[]
+    data2=[]
+    labels3=[]
+    data3=[]
+    labels4=[]
+    data4=[]
+    labels5=[]
+    data5=[]
+    labels6=[]
+    data6=[]
+    labels7=[]
+    data7=[]
+    labels8=[]
+    data8=[]
+    labels9=[]
+    data9=[]
+    labels10=[]
+    data10=[]
+    labels11=[]
+    data11=[]
+    labels12=[]
+    data12=[]
     for candidate in prez:
         name = candidate.first_name+" "+candidate.last_name
         labels.append(name)
@@ -144,11 +297,90 @@ def voteCount():
         labels1.append(name)
         vote=VotesModel.query.filter(VotesModel.post_2==candidate.roll_num).count()
         data1.append(vote)
+    for candidate in bc:
+        name = candidate.first_name+" "+candidate.last_name
+        labels2.append(name)
+        vote=VotesModel.query.filter(VotesModel.post_3==candidate.roll_num).count()
+        data2.append(vote)
+    for candidate in secretary:
+        name = candidate.first_name+" "+candidate.last_name
+        labels3.append(name)
+        vote=VotesModel.query.filter(VotesModel.post_4==candidate.roll_num).count()
+        data3.append(vote)
+    for candidate in treasurer:
+        name = candidate.first_name+" "+candidate.last_name
+        labels4.append(name)
+        vote=VotesModel.query.filter(VotesModel.post_5==candidate.roll_num).count()
+        data4.append(vote)
+    for candidate in c_sec:
+        name = candidate.first_name+" "+candidate.last_name
+        labels5.append(name)
+        vote=VotesModel.query.filter(VotesModel.post_6==candidate.roll_num).count()
+        data5.append(vote)
+    for candidate in s_sec:
+        name = candidate.first_name+" "+candidate.last_name
+        labels6.append(name)
+        vote=VotesModel.query.filter(VotesModel.post_7==candidate.roll_num).count()
+        data6.append(vote)
+    for candidate in t_sec:
+        name = candidate.first_name+" "+candidate.last_name
+        labels7.append(name)
+        vote=VotesModel.query.filter(VotesModel.post_8==candidate.roll_num).count()
+        data7.append(vote)
+    for candidate in creative:
+        name = candidate.first_name+" "+candidate.last_name
+        labels8.append(name)
+        vote=VotesModel.query.filter(VotesModel.post_9==candidate.roll_num).count()
+        data8.append(vote)
+    for candidate in s_cord:
+        name = candidate.first_name+" "+candidate.last_name
+        labels9.append(name)
+        vote=VotesModel.query.filter(VotesModel.post_10==candidate.roll_num).count()
+        data9.append(vote)
+    for candidate in p_cord:
+        name = candidate.first_name+" "+candidate.last_name
+        labels10.append(name)
+        vote=VotesModel.query.filter(VotesModel.post_11==candidate.roll_num).count()
+        data10.append(vote)
+    for candidate in graph:
+        name = candidate.first_name+" "+candidate.last_name
+        labels11.append(name)
+        vote=VotesModel.query.filter(VotesModel.post_12==candidate.roll_num).count()
+        data11.append(vote)
+    for candidate in website:
+        name = candidate.first_name+" "+candidate.last_name
+        labels12.append(name)
+        vote=VotesModel.query.filter(VotesModel.post_13==candidate.roll_num).count()
+        data12.append(vote)
+    
 
     output = {"data": data,
             "labels": labels,
             "data1": data1,
-            "labels1": labels1}
+            "labels1": labels1,
+            "data2": data2,
+            "labels2": labels2,
+            "data3": data3,
+            "labels3": labels3,
+            "data4": data4,
+            "labels4": labels4,
+            "data5": data5,
+            "labels5": labels5,
+            "data6": data6,
+            "labels6": labels6,
+            "data7": data7,
+            "labels7": labels7,
+            "data8": data8,
+            "labels8": labels8,
+            "data9": data9,
+            "labels9": labels9,
+            "data10": data10,
+            "labels10": labels10,
+            "data11": data11,
+            "labels11": labels11,
+            "data12": data12,
+            "labels12": labels12,
+            }
     response = app.response_class(
         response=json.dumps(output),
         status=200,
