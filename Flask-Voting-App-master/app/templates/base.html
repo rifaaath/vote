@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DEPT OF AIML</title>
+    <title>Flask Vote App</title>
     {% block styles %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
     {% endblock %}
@@ -14,75 +14,49 @@
 <body>
     <section class="hero is-dark is-fullheight">
 
-        <div class="hero-head is-black">
-            <nav class="navbar href="/_">
+        <div class="hero-head">
+            <nav class="navbar" href="/_">
                 <div class="navbar-brand">
-                    <a class="navbar-item" href="https://bulma.io">
-                        <img src="static/images/tasc.png" width="50" height="60">
-                      </a>
-                    <a class="navbar-item has-text-weight-bold is-rounded is-transparent">
-                     DEPARTMENT OF ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING
+                    <a class="navbar-item has-text-weight-bold has-text-info is-transparent">
+                     | AIML Student Council Elections |
                     </a>
                 </div>    
                 <div class="container">
                     <div id="navbarMenuHeroA" class="navbar-menu">
     
                         <div class="navbar-end">
+                            <a href="{{ url_for('index') }}" class="navbar-item has-text-info">
+                                Home
+                            </a>
+                            <a href="{{ url_for('candidate') }}" class="navbar-item has-text-info">
+                                Candidate Info
+                            </a>
+                            <a href="{{ url_for('live_result') }}" class="navbar-item has-text-info">
+                                Live Result
+                            </a>
                             
-                            <p class="px-10">
-                                <a href="{{ url_for('index') }}" class="navbar-item" >
-                                    Home
-                                </a>
-                              </p>
-                            
-                            <p class="px-1">
-                                <a href="{{ url_for('candidate') }}" class="navbar-item px-1">
-                                    Candidate Info
-                                </a>
-                              </p>
-                            
-                            <p class="px-1">
-                                <a href="{{ url_for('live_result') }}" class="navbar-item px-1">
-                                    Live Result
-                                </a>
-                              </p>
                             {% if not current_user.is_authenticated %}
-                            
-                            <p class="px-1">
-                                <a href="{{ url_for('auth.login') }}" class="navbar-item button is-black px-1">
-                                    Login
-                                </a>
-                              </p>
-                            
-                            <p class="px-1">
-                                <a href="{{ url_for('auth.register') }}" class="navbar-item button px-1 is-primary">
-                                    <strong>Sign Up</strong>
-                                </a>
-                              </p>
+                            <a href="{{ url_for('auth.login') }}" class="navbar-item has-text-info">
+                                Login
+                            </a>
+                            <a href="{{ url_for('auth.register') }}" class="navbar-item has-text-info">
+                                Sign Up
+                            </a>
                             {% endif %}
                             {% if current_user.admin == 1 %}
-                            
-                            <p class="px-1">
-                                <a href="{{ url_for('candidate_register') }}" class="navbar-item px-1">
-                                    Register Candidate
-                                </a>
-                              </p>
+                            <a href="{{ url_for('candidate_register') }}" class="navbar-item has-text-info">
+                                Register Candidate
+                            </a>
                             {% endif %}
                             {% if current_user.is_authenticated %}
-                            
-                            <p class="px-1">
-                                <a href="{{ url_for('auth.logout') }}" class="navbar-item button px-1 is-black">
-                                    Logout
-                                </a>
-                              </p>
+                            <a href="{{ url_for('auth.logout') }}" class="navbar-item has-text-info">
+                                Logout
+                            </a>
                             {% endif %}
                             {% if current_user.is_authenticated and not current_user.admin == 1 %}
-                            
-                            <p class="px-1">
-                                <a href="{{ url_for('profile') }}" class="navbar-item has-text-warning px-1 is-tab  is-transparent">
-                                    Vote
-                                </a>
-                              </p>
+                            <a href="{{ url_for('profile') }}" class="navbar-item has-text-info is-tab  is-transparent">
+                                Vote
+                            </a>
                             {% endif %}
                         </div>
                     </div>
