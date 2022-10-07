@@ -1,29 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
-<section class="hero is-dark is-fullheight-with-navbar">
+<section class="hero is-bold is-white is-fullheight-with-navbar">
+  <div class=columns>
+    <div class="column is-5" >
+      <img src="static/images/nmamit.png" >
+    </div>
+  </div>
     <div class="hero-body">
       <div class="container">
-
-        <div class="columns">
-            <div class="column">
-                <h1 class="title is-italic has-text-info is-1">
-                     AIML Student Council Elections 
-                  </h1>
-                <h2 class="subtitle has-text-link is-4">
-                  <br>
-                  Login to Start Voting
-                </h2>
+        <div class="bg-primary text-white">
+        <div class="row justify-content-center">
+                <h1 class="title is-bold has-text-weight-bold is-2 has-text-dark">
+                     DEPARTMENT OF ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING
+                </h1>
+                <span></span>
+                <div class="card">
+                  <h2 class="subtitle is-info has-text-success is-3">
+                    Voting Portal
+                  </h2>
+                  <br><br>
+                <p class="has-text-centered has-text-weight-semibold">TASC welcomes you to the AIML student council election for the session 2022-23</p>
                 <br>
-                <p class="has-text-centered has-text-weight-semibold has-text-light">TASC Welcomes You To The AIML Student Council Elections For The Session 2022-23. Kindly Register Yourself and Vote For The Desired Candidate. </p>
-                <br><br>
-                <p class="has-text-centered has-text-weight-semibold has-text-light">To Know More About The Candidates, Switch to Candidates Tab</p> <br><br>
-                <p class="has-text-centered has-text-weight-semibold has-text-light">To Register as a Candidate, Contact Admin</p>
-            </div>
-          
+                <p class="has-text-centered has-text-weight-bold has-text-dark">KINDLY LOGIN TO THE PORTAL USING YOUR USN AND PASSWORD</p> <br>
+                <p class="has-text-centered has-text-weight-semibold">To register as a candidate, please contact admin</p>
+                </div>
+              </div>
         </div>
         
       </div>
       
     </div>
-  </section>
+    <div class="hero-foot has-text-centered">
+      <nav class="tabs is-boxed">
+        <div class="container has-text-centered">
+          <ul>
+            <li class="is-active has-text-centered">Made with ♡</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+</section>
 {% endblock %}
