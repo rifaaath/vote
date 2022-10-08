@@ -49,8 +49,8 @@ def post_vote():
 
     voted = VotesModel.query.filter_by(roll_num=current_user.roll_num).first()
     if not voted:
-        voter = VotesModel(roll_num=current_user.roll_num,voter_id=current_user.id,post_1=int(president),post_2=int(vicepresident),post_3=int(bc),post_4=int(secretary),post_5=int(treasurer),post_6=int(c_sec),post_7=int(s_sec),post_8=int(t_sec),post_9=int(creative),post_10=int(s_cord),post_11=int(p_cord),post_12=int(graph),post_13=int(website))
-        print(voter.name,"has voted")
+        voter = VotesModel(roll_num=current_user.roll_num,voter_id=current_user.id,post_1=president,post_2=vicepresident,post_3=bc,post_4=secretary,post_5=treasurer,post_6=c_sec,post_7=s_sec,post_8=t_sec,post_9=creative,post_10=s_cord,post_11=p_cord,post_12=graph,post_13=website)
+        print("\033[91m {} has voted \033[00m" .format(current_user.name))
         db.session.add(voter)
         db.session.commit()
         return redirect(url_for('profile'))
