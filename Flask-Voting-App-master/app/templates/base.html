@@ -30,12 +30,7 @@
     
                         <div class="navbar-end">
                             {% if not current_user.is_authenticated %}
-                            
-                            <p class="px-1">
-                                <a href="{{ url_for('auth.register') }}" class="navbar-item button px-1 is-primary">
-                                    Sign Up
-                                </a>
-                              </p>
+                                
                             {% endif %}
                             {% if current_user.is_authenticated and not current_user.admin == 1 %}
                             
