@@ -77,6 +77,21 @@ def candidate():
 
     return render_template("candidate.html",prez=prez,vice=vice,bc=bc,secretary=secretary,treasurer=treasurer,c_sec=c_sec,t_sec=t_sec,s_sec=s_sec,creative=creative,s_cord=s_cord,p_cord=p_cord,graph=graph,website=website)
 
+@app.route("/reset_vote")
+@login_required
+def reset_vote():
+    if current_user.admin !=1:
+        logout_user()
+        flash('You do not have required authorization')
+        return redirect(url_for('auth.login'))
+    else:
+        voted = VotesModel.query.filter_by()
+        for i in voted:
+            db.session.delete(i)
+        db.session.commit()
+        flash('Votes have been reset','success')
+        return redirect(url_for('profile'))
+
 @app.route("/candidate_register")
 @login_required
 def candidate_register():
@@ -86,6 +101,7 @@ def candidate_register():
         return redirect(url_for('auth.login'))
     else:
         return render_template("candidate_register.html")
+
 
 @app.route("/candidate_register", methods=["POST"])
 def candidate_post():

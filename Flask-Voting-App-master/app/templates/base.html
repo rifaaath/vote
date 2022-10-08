@@ -69,17 +69,31 @@
                                     Live Result
                                 </a>
                               </p>
-
-                            <p class="px-1">
-                                <a href="{{ url_for('candidate_register') }}" class="navbar-item px-1 button is-primary">
-                                    <strong>Register Candidate</strong>
+                              <div class="navbar-item has-text-link button has-dropdown is-hoverable">
+                                <a class="navbar-link">
+                                  User Control
                                 </a>
-                              </p>
-                              <p class="px-1">
-                                <a href="{{ url_for('auth.register') }}" class="navbar-item button px-1 is-primary">
-                                    <strong>Sign Up User</strong>
-                                </a>
-                              </p>
+                            
+                                <div class="navbar-dropdown is-boxed">
+                                    <p class="px-1">
+                                        <a href="{{ url_for('candidate_register') }}" class="navbar-item is-black">
+                                            <strong>Register Candidate</strong>
+                                        </a>
+                                      </p>
+                                      <p class="px-1">
+                                        <a href="{{ url_for('auth.register') }}" class="navbar-item is-black">
+                                            <strong>Sign Up User</strong>
+                                        </a>
+                                      </p>
+                                      <p class="px-1">
+                                        <a href="{{ url_for('reset_vote') }}" class="navbar-item is-danger">
+                                            <strong>RESET VOTES</strong>
+                                        </a>
+                                      </p>
+                                </div>
+                              </div>
+                            
+                              
                             
                             {% endif %}
                             {% if current_user.is_authenticated %}

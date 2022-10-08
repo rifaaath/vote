@@ -1,9 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 <h1 class="title">
   Welcome, {{ name }}!
 </h1>
+<div class="box">
+  {% with success = get_flashed_messages(category_filter=["success"]) %}
+  {% if success %}
+      <div class="notification is-success">
+      {%- for msg in success %}
+          <ul>{{ msg }}. Go to <a href="{{ url_for('live_result') }}">live results</a> to check.</ul>
+      {% endfor -%}
+      </div>
+  {% endif %}
+  {% endwith %}
+  </div>
 {% if voter%}
   <h1 class="subtitle has-text-success"> Your vote has been cast.</h1>
   
