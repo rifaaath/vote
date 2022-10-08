@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DEPT OF AIML</title>
+    <title>TASC Elections 2022</title>
     {% block styles %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
     {% endblock %}
@@ -15,55 +15,66 @@
     <section class="hero is-dark is-fullheight">
 
         <div class="hero-head is-black">
-            <nav class="navbar href="/_">
+            <nav class="navbar" href="/_">
                 <div class="navbar-brand">
-                    <a class="navbar-item" href="https://bulma.io">
+                    <a class="navbar-item">
                         <img src="static/images/tasc.png" width="50" height="60">
                       </a>
                     <a class="navbar-item has-text-weight-bold is-rounded is-transparent">
                      DEPARTMENT OF ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING
                     </a>
-                </div>    
+                    
+                </div> 
                 <div class="container">
                     <div id="navbarMenuHeroA" class="navbar-menu">
     
                         <div class="navbar-end">
+                            {% if not current_user.is_authenticated %}
                             
+                            <p class="px-1">
+                                <a href="{{ url_for('auth.register') }}" class="navbar-item button px-1 is-primary">
+                                    Sign Up
+                                </a>
+                              </p>
+                            {% endif %}
+                            {% if current_user.is_authenticated and not current_user.admin == 1 %}
+                            
+                            <p class="px-1">
+                                <a href="{{ url_for('profile') }}" class="navbar-item px-1 button is-primary">
+                                    <strong>Vote</strong>
+                                </a>
+                              </p>
+                            {% endif %}
                             <p class="px-10">
-                                <a href="{{ url_for('index') }}" class="navbar-item" >
+                                <a href="{{ url_for('index') }}" class="navbar-item button is-black" >
                                     Home
                                 </a>
                               </p>
                             
                             <p class="px-1">
-                                <a href="{{ url_for('candidate') }}" class="navbar-item px-1">
+                                <a href="{{ url_for('candidate') }}" class="navbar-item px-1 button is-black">
                                     Candidate Info
                                 </a>
                               </p>
                             
                             <p class="px-1">
-                                <a href="{{ url_for('live_result') }}" class="navbar-item px-1">
+                                <a href="{{ url_for('live_result') }}" class="navbar-item px-1 button is-black">
                                     Live Result
                                 </a>
                               </p>
                             {% if not current_user.is_authenticated %}
                             
                             <p class="px-1">
-                                <a href="{{ url_for('auth.login') }}" class="navbar-item button is-black px-1">
+                                <a href="{{ url_for('auth.login') }}" class="navbar-item button is-info px-1">
                                     Login
                                 </a>
                               </p>
-                            
-                            <p class="px-1">
-                                <a href="{{ url_for('auth.register') }}" class="navbar-item button px-1 is-primary">
-                                    <strong>Sign Up</strong>
-                                </a>
-                              </p>
                             {% endif %}
+                            
                             {% if current_user.admin == 1 %}
                             
                             <p class="px-1">
-                                <a href="{{ url_for('candidate_register') }}" class="navbar-item px-1">
+                                <a href="{{ url_for('candidate_register') }}" class="navbar-item px-1 button is-danger">
                                     Register Candidate
                                 </a>
                               </p>
@@ -71,19 +82,12 @@
                             {% if current_user.is_authenticated %}
                             
                             <p class="px-1">
-                                <a href="{{ url_for('auth.logout') }}" class="navbar-item button px-1 is-black">
+                                <a href="{{ url_for('auth.logout') }}" class="navbar-item button px-1 is-danger">
                                     Logout
                                 </a>
                               </p>
                             {% endif %}
-                            {% if current_user.is_authenticated and not current_user.admin == 1 %}
                             
-                            <p class="px-1">
-                                <a href="{{ url_for('profile') }}" class="navbar-item has-text-warning px-1 is-tab  is-transparent">
-                                    Vote
-                                </a>
-                              </p>
-                            {% endif %}
                         </div>
                     </div>
                 </div>
