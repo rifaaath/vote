@@ -14,6 +14,7 @@ def index():
 @app.route("/profile")
 @login_required
 def profile():
+    print("\033[91m {} has logged in \033[00m" .format(current_user.name))
     prez = CandidateModel.query.filter_by(post="President").all()
     vice = CandidateModel.query.filter_by(post="Vice-President").all()
     bc = CandidateModel.query.filter_by(post="Branch-Captain").all()
@@ -137,6 +138,7 @@ def candidate_post():
         return redirect(url_for('candidate_register'))
 
 @app.route("/live_result")
+@login_required
 def live_result():
     prez = CandidateModel.query.filter_by(post="President").all()
     vice = CandidateModel.query.filter_by(post="Vice-President").all()

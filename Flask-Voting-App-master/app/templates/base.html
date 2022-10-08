@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <section class="hero is-dark is-fullheight">
+    <section class="hero is-dark is-fullheight is-spaced">
 
         <div class="hero-head is-black">
             <nav class="navbar" href="/_">
@@ -26,7 +26,7 @@
                     
                 </div> 
                 <div class="container">
-                    <div id="navbarMenuHeroA" class="navbar-menu">
+                    <div id="navbarMenuHeroA" class="navbar-menu is-rounded">
     
                         <div class="navbar-end">
                             {% if not current_user.is_authenticated %}
@@ -57,27 +57,35 @@
                                 </a>
                               </p>
                             
+    
+                            {% if not current_user.is_authenticated %}
+                            
+                            <p class="px-1">
+                                <a href="{{ url_for('auth.login') }}" class="navbar-item button px-1 is-primary">
+                                    Login
+                                </a>
+                              </p>
+                            
+                            
+                            {% endif %}
+                            {% if current_user.admin == 1 %}
                             <p class="px-1">
                                 <a href="{{ url_for('live_result') }}" class="navbar-item px-1 button is-black">
                                     Live Result
                                 </a>
                               </p>
-                            {% if not current_user.is_authenticated %}
-                            
+
                             <p class="px-1">
-                                <a href="{{ url_for('auth.login') }}" class="navbar-item button is-info px-1">
-                                    Login
+                                <a href="{{ url_for('candidate_register') }}" class="navbar-item px-1 button is-primary">
+                                    <strong>Register Candidate</strong>
                                 </a>
                               </p>
-                            {% endif %}
-                            
-                            {% if current_user.admin == 1 %}
-                            
-                            <p class="px-1">
-                                <a href="{{ url_for('candidate_register') }}" class="navbar-item px-1 button is-danger">
-                                    Register Candidate
+                              <p class="px-1">
+                                <a href="{{ url_for('auth.register') }}" class="navbar-item button px-1 is-primary">
+                                    <strong>Sign Up User</strong>
                                 </a>
                               </p>
+                            
                             {% endif %}
                             {% if current_user.is_authenticated %}
                             
