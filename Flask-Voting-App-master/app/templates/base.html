@@ -12,10 +12,10 @@
 </head>
 
 <body>
-    <section class="hero is-dark is-fullheight is-spaced">
-
+    <section class="hero is-dark is-fullheight">
+        <div class="block">
         <div class="hero-head is-black">
-            <nav class="navbar" href="/_">
+            <nav class="navbar is-fullwidth" href="/_">
                 <div class="navbar-brand">
                     <a class="navbar-item">
                         <img src="static/images/tasc.png" width="50" height="60">
@@ -26,11 +26,11 @@
                     
                 </div> 
                 <div class="container">
-                    <div id="navbarMenuHeroA" class="navbar-menu is-rounded">
+                    <div id="navbarMenuHeroA" class="navbar-menu">
     
                         <div class="navbar-end">
                             {% if not current_user.is_authenticated %}
-                                
+
                             {% endif %}
                             {% if current_user.is_authenticated and not current_user.admin == 1 %}
                             
@@ -103,6 +103,7 @@
                {% endblock %}
             </div>
         </div>
+    </div>
     </section>
 </body>
 
