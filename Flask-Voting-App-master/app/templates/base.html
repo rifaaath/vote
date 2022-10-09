@@ -14,13 +14,13 @@
 <body>
     <section class="hero is-dark is-fullheight">
         <div class="block">
-        <div class="hero-head is-black">
+        <div class="hero-head">
             <nav class="navbar is-fullwidth" href="/_">
                 <div class="navbar-brand">
                     <a class="navbar-item">
                         <img src="static/images/tasc.png" width="50" height="60">
                       </a>
-                    <a class="navbar-item has-text-weight-bold is-rounded is-transparent">
+                    <a class="navbar-item has-text-weight-bold is-rounded">
                      DEPARTMENT OF ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING
                     </a>
                     
@@ -34,20 +34,20 @@
                             {% endif %}
                             {% if current_user.is_authenticated and not current_user.admin == 1 %}
                             
-                            <p class="px-1">
-                                <a href="{{ url_for('profile') }}" class="navbar-item px-1 button is-primary">
+                            <p class="px-2">
+                                <a href="{{ url_for('profile') }}" class="navbar-item px-2 button is-primary">
                                     <strong>Vote</strong>
                                 </a>
                               </p>
                             {% endif %}
-                            <p class="px-10">
-                                <a href="{{ url_for('index') }}" class="navbar-item button is-black" >
+                            <p class="px-2">
+                                <a href="{{ url_for('index') }}" class="navbar-item px-2 button is-black" >
                                     Home
                                 </a>
                               </p>
                             
-                            <p class="px-1">
-                                <a href="{{ url_for('candidate') }}" class="navbar-item px-1 button is-black">
+                            <p class="px-2">
+                                <a href="{{ url_for('candidate') }}" class="navbar-item px-2 button is-black">
                                     Candidate Info
                                 </a>
                               </p>
@@ -55,8 +55,8 @@
     
                             {% if not current_user.is_authenticated %}
                             
-                            <p class="px-1">
-                                <a href="{{ url_for('auth.login') }}" class="navbar-item button px-1 is-primary">
+                            <p class="px-2">
+                                <a href="{{ url_for('auth.login') }}" class="navbar-item button px-2 is-primary">
                                     Login
                                 </a>
                               </p>
@@ -64,17 +64,16 @@
                             
                             {% endif %}
                             {% if current_user.admin == 1 %}
-                            <p class="px-1">
-                                <a href="{{ url_for('live_result') }}" class="navbar-item px-1 button is-black">
+                            <p class="px-2">
+                                <a href="{{ url_for('live_result') }}" class="navbar-item px-2 button is-black">
                                     Live Result
                                 </a>
                               </p>
-                              <div class="navbar-item has-text-link button has-dropdown is-hoverable">
+                              <div class="navbar-item button has-dropdown is-hoverable is-warning has-text-dark">
                                 <a class="navbar-link">
                                   User Control
                                 </a>
-                            
-                                <div class="navbar-dropdown is-boxed">
+                                <div class="navbar-dropdown is-inverted is-boxed has-text-dark is-dark">
                                     <p class="px-1">
                                         <a href="{{ url_for('candidate_register') }}" class="navbar-item is-black">
                                             <strong>Register Candidate</strong>
@@ -86,7 +85,7 @@
                                         </a>
                                       </p>
                                       <p class="px-1">
-                                        <a href="{{ url_for('reset_vote') }}" class="navbar-item is-danger">
+                                        <a href="{{ url_for('reset_vote') }}" class="navbar-item has-text-danger has-text-weight-bold">
                                             <strong>RESET VOTES</strong>
                                         </a>
                                       </p>

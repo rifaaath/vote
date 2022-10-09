@@ -17,8 +17,9 @@
   {% endwith %}
   </div>
 {% if voter%}
-  <h1 class="subtitle has-text-success"> Your vote has been cast.</h1>
-  
+  <h1 class="subtitle has-text-success"> Your vote has been cast. </h1>
+  <ul>Please <a class="tag is-danger is-light" href="{{ url_for('auth.logout') }}">logout</a></ul>
+      
 {%else%}
   <h2 class="subtitle">
       You can cast your vote here.<br>

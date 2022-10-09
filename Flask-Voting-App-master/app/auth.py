@@ -28,6 +28,7 @@ def login_post():
 
     # if the above check passes, then we know the user has the right credentials
     login_user(user, remember=remember)
+    print("\033[91m {} has logged in \033[00m" .format(user.name))
     return redirect(url_for('profile'))
 
 
