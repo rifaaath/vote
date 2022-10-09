@@ -89,6 +89,7 @@ def reset_vote():
             db.session.delete(i)
         db.session.commit()
         flash('Votes have been reset','success')
+        print("\033[91m {} has reset the votes \033[00m" .format(current_user.name))
         return redirect(url_for('profile'))
 
 @app.route("/candidate_register")
