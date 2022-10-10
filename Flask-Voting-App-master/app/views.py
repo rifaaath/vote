@@ -92,6 +92,22 @@ def reset_vote():
         print("\033[91m {} has reset the votes \033[00m" .format(current_user.name))
         return redirect(url_for('profile'))
 
+@app.route("/poll_info")
+@login_required
+def poll_info():
+    if current_user.admin !=1:
+        logout_user()
+        flash('You do not have required authorization')
+        return redirect(url_for('auth.login'))
+    else:
+        voted = VotesModel.query.filter_by()
+        not_voted = UserModel.query.filter_by()
+        #for i in not_voted:
+            #if i.roll_num in [m for m in voted]:
+
+
+        return render_template("poll_info.html", voted, not_voted)
+
 @app.route("/candidate_register")
 @login_required
 def candidate_register():
