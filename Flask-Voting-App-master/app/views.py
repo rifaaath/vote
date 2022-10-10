@@ -100,13 +100,21 @@ def poll_info():
         flash('You do not have required authorization')
         return redirect(url_for('auth.login'))
     else:
-        voted = VotesModel.query.filter_by()
-        not_voted = UserModel.query.filter_by()
+        voted = []
+        not_voted = []
+        user = UserModel.query
+        for i in user:
+            u = VotesModel.query.filter(VotesModel.roll_num == i.roll_num).first()
+            if u:
+                voted.append(i)
+            else:
+                not_voted.append(i)
+            
         #for i in not_voted:
             #if i.roll_num in [m for m in voted]:
 
 
-        return render_template("poll_info.html", voted, not_voted)
+        return render_template("poll_info.html", voted = voted, not_voted = not_voted)
 
 @app.route("/candidate_register")
 @login_required
