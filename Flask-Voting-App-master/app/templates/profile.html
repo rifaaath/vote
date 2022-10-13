@@ -38,9 +38,9 @@
 
         <form method="POST" action="/profile">
           <div class="field ">
-            <label class="label">President</label>
+            <label class="label">Joint Secretary</label>
             <div class="select" >
-              <select name="president">
+              <select name="Jt_Sec">
                 {% for prez in prez %}
                     <option value ={{prez.roll_num}}>{{prez.first_name}} {{prez.last_name}} ({{prez.roll_num}})</option>
                 {% endfor %}
@@ -49,9 +49,9 @@
           </div>
 
           <div class="field">
-            <label class="label">Vice-President</label>
+            <label class="label">Joint Cultural Secretary</label>
             <div class="select" >
-              <select name="vice-president">
+              <select name="Jt_Cul">
                 {% for vice in vice %}
                     <option value ={{vice.roll_num}}>{{vice.first_name}} {{vice.last_name}} ({{vice.roll_num}})</option>
                 {% endfor %}
@@ -60,9 +60,9 @@
           </div>
 
           <div class="field ">
-            <label class="label">Branch Captain</label>
+            <label class="label">Joint Sports Secretary</label>
             <div class="select" >
-              <select name="bc">
+              <select name="Jt_Sp">
                 {% for bc in bc %}
                     <option value ={{bc.roll_num}}>{{bc.first_name}} {{bc.last_name}} ({{bc.roll_num}})</option>
                 {% endfor %}
@@ -71,9 +71,9 @@
           </div>
         
           <div class="field ">
-            <label class="label">Secretary</label>
+            <label class="label">Joint Technical Secretary</label>
             <div class="select" >
-              <select name="secretary">
+              <select name="Jt_Th">
                 {% for secretary in secretary %}
                     <option value ={{secretary.roll_num}}>{{secretary.first_name}} {{secretary.last_name}} ({{secretary.roll_num}})</option>
                 {% endfor %}
@@ -81,104 +81,7 @@
             </div>  
           </div>
         
-          <div class="field ">
-            <label class="label">Treasurer</label>
-            <div class="select" >
-              <select name="treasurer">
-                {% for treasurer in treasurer %}
-                    <option value ={{treasurer.roll_num}}>{{treasurer.first_name}} {{treasurer.last_name}} ({{treasurer.roll_num}})</option>
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-        
-          <div class="field ">
-            <label class="label">Cultural Secretary</label>
-            <div class="select" >
-              <select name="c_sec">
-                {% for c_sec in c_sec %}
-                    <option value ={{c_sec.roll_num}}>{{c_sec.first_name}} {{c_sec.last_name}} ({{c_sec.roll_num}})</option>
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-        
-          <div class="field ">
-            <label class="label">Sports Secretary</label>
-            <div class="select" >
-              <select name="s_sec">
-                {% for s_sec in s_sec %}
-                    <option value ={{s_sec.roll_num}}>{{s_sec.first_name}} {{s_sec.last_name}} ({{s_sec.roll_num}})</option>
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-        
-          <div class="field ">
-            <label class="label">Techincal Secretary</label>
-            <div class="select" >
-              <select name="t_sec">
-                {% for t_sec in t_sec %}
-                    <option value ={{t_sec.roll_num}}>{{t_sec.first_name}} {{t_sec.last_name}} ({{t_sec.roll_num}})</option>
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-        
-          <div class="field ">
-            <label class="label">Creative Head</label>
-            <div class="select" >
-              <select name="creative">
-                {% for creative in creative %}
-                    <option value ={{creative.roll_num}}>{{creative.first_name}} {{creative.last_name}} ({{creative.roll_num}})</option>
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-        
-          <div class="field ">
-            <label class="label">Social Media Coordinator</label>
-            <div class="select" >
-              <select name="s_cord">
-                {% for s_cord in s_cord %}
-                    <option value ={{s_cord.roll_num}}>{{s_cord.first_name}} {{s_cord.last_name}} ({{s_cord.roll_num}})</option>
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-        
-          <div class="field ">
-            <label class="label">Photography Coordinator</label>
-            <div class="select" >
-              <select name="p_cord">
-                {% for p_cord in p_cord %}
-                    <option value ={{p_cord.roll_num}}>{{p_cord.first_name}} {{p_cord.last_name}} ({{p_cord.roll_num}})</option>
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-        
-          <div class="field ">
-            <label class="label">Graphic Designer</label>
-            <div class="select" >
-              <select name="graph">
-                {% for graph in graph %}
-                    <option value ={{graph.roll_num}}>{{graph.first_name}} {{graph.last_name}} ({{graph.roll_num}})</option>
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-        
-          <div class="field ">
-            <label class="label">Website Manager</label>
-            <div class="select" >
-              <select name="website">
-                {% for website in website %}
-                    <option value ={{website.roll_num}}>{{website.first_name}} {{website.last_name}} ({{website.roll_num}})</option>
-                {% endfor %}
-              </select>
-            </div>
-
+          
               <br>
               <br>
 
@@ -188,9 +91,9 @@
             </div>
         </form>
       </div>
-    </div>
-    <div class="column is-4">
-      <img src="static/images/4.jpg">
+      <div class="column is-4">
+        <img src="static/images/4.jpg">
+      </div>
     </div>
   </div>
   {% endif %}

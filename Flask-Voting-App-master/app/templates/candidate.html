@@ -15,7 +15,7 @@
             <br>
             <br>
             <div class="column id-9">
-              <h1 class="title has-text-link">Presidential Candidates</h1>
+              <h1 class="title has-text-link">Joint Secretary Candidates</h1>
               <br>
               <div class="tile is-ancestor ">
               {% for prez in prez %}
@@ -38,7 +38,7 @@
                 {% endif %}    
               {% endfor %}
               </div> 
-              <h1 class="title has-text-link">Vice-Presidential Candidates</h1>
+              <h1 class="title has-text-link">Joint Cultural Secretary Candidates</h1>
               <br>
               <div class="tile is-ancestor ">
                 {% for vice in vice %}
@@ -61,7 +61,7 @@
                   {% endif %}    
                 {% endfor %}
             </div>
-            <h1 class="title has-text-link">Branch Captain Candidates</h1>
+            <h1 class="title has-text-link">Joint Sports Secretary Candidates</h1>
               <br>
               <div class="tile is-ancestor ">
                 {% for bc in bc %}
@@ -85,7 +85,7 @@
                 {% endfor %}
             </div>
 
-            <h1 class="title has-text-link">Secretary Candidates</h1>
+            <h1 class="title has-text-link">Joint Technical Secretary Candidates</h1>
               <br>
               <div class="tile is-ancestor ">
                 {% for secretary in secretary %}
@@ -109,222 +109,7 @@
                 {% endfor %}
             </div>
 
-            <h1 class="title has-text-link">Treasurer Candidates</h1>
-              <br>
-              <div class="tile is-ancestor ">
-                {% for treasurer in treasurer %}
-                  {% if not treasurer.last_name == 'Vote'%}
-                    
-                      <div class="tile is-parent">
-                        <article class="tile is-child box notification is-white">
-                          <h1 class="title is-5 has-text-dark">{{ treasurer.first_name }} {{ treasurer.last_name }}</h1>
-                          <p class="subtitle is-3 has-text-dark">{{treasurer.roll_num}}</p>
-                          <p class="title is-5 has-text-dark is-italic"> "{{treasurer.agenda}}"</p>
-                          <figure class="image">
-                              <img class="is-rounded" src="{{ treasurer.pic_path}}">
-                          </figure>
-                          <br>
-                          <p class="subtitle has-text-dark has-text-weight-semibold">{{treasurer.batch}}</p>
-                          <p class="subtitle has-text-dark has-text-weight-semibold">{{treasurer.course}}, {{treasurer.department}}</p>
-                        </article>
-                      </div>
-                    
-                  {% endif %}    
-                {% endfor %}
-            </div>
-
-            <h1 class="title has-text-link">Cultural Secretary Candidates</h1>
-              <br>
-              <div class="tile is-ancestor ">
-                {% for c_sec in c_sec %}
-                  {% if not c_sec.last_name == 'Vote'%}
-                    
-                      <div class="tile is-parent">
-                        <article class="tile is-child box notification is-white">
-                          <h1 class="title is-5 has-text-dark">{{ c_sec.first_name }} {{ c_sec.last_name }}</h1>
-                          <p class="subtitle is-3 has-text-dark">{{c_sec.roll_num}}</p>
-                          <p class="title is-5 has-text-dark is-italic"> "{{c_sec.agenda}}"</p>
-                          <figure class="image">
-                              <img class="is-rounded" src="{{ c_sec.pic_path}}">
-                          </figure>
-                          <br>
-                          <p class="subtitle has-text-dark has-text-weight-semibold">{{c_sec.batch}}</p>
-                          <p class="subtitle has-text-dark has-text-weight-semibold">{{c_sec.course}}, {{c_sec.department}}</p>
-                        </article>
-                      </div>
-                    
-                  {% endif %}    
-                {% endfor %}
-            </div>
-
-            <h1 class="title has-text-link">Sports Secretary Candidates</h1>
-              <br>
-              <div class="tile is-ancestor ">
-                {% for s_sec in s_sec %}
-                  {% if not s_sec.last_name == 'Vote'%}
-                    
-                      <div class="tile is-parent">
-                        <article class="tile is-child box notification is-white">
-                          <h1 class="title is-5 has-text-dark">{{ s_sec.first_name }} {{ s_sec.last_name }}</h1>
-                          <p class="subtitle is-3 has-text-dark">{{s_sec.roll_num}}</p>
-                          <p class="title is-5 has-text-dark is-italic"> "{{s_sec.agenda}}"</p>
-                          <figure class="image">
-                              <img class="is-rounded" src="{{ s_sec.pic_path}}">
-                          </figure>
-                          <br>
-                          <p class="subtitle has-text-dark has-text-weight-semibold">{{s_sec.batch}}</p>
-                          <p class="subtitle has-text-dark has-text-weight-semibold">{{s_sec.course}}, {{s_sec.department}}</p>
-                        </article>
-                      </div>
-                    
-                  {% endif %}    
-                {% endfor %}
-            </div>
-
-            <h1 class="title has-text-link">Technical Secretary Candidates</h1>
-              <br>
-              <div class="tile is-ancestor ">
-                {% for t_sec in t_sec %}
-                  {% if not t_sec.last_name == 'Vote'%}
-                    
-                      <div class="tile is-parent">
-                        <article class="tile is-child box notification is-white">
-                          <h1 class="title is-5 has-text-dark">{{ t_sec.first_name }} {{ t_sec.last_name }}</h1>
-                          <p class="subtitle is-3 has-text-dark">{{t_sec.roll_num}}</p>
-                          <p class="title is-5 has-text-dark is-italic"> "{{t_sec.agenda}}"</p>
-                          <figure class="image">
-                              <img class="is-rounded" src="{{ t_sec.pic_path}}">
-                          </figure>
-                          <br>
-                          <p class="subtitle has-text-dark has-text-weight-semibold">{{t_sec.batch}}</p>
-                          <p class="subtitle has-text-dark has-text-weight-semibold">{{t_sec.course}}, {{t_sec.department}}</p>
-                        </article>
-                      </div>
-                    
-                  {% endif %}    
-                {% endfor %}
-            </div>
-
-            <h1 class="title has-text-link">Creative Head Candidates</h1>
-              <br>
-              <div class="tile is-ancestor ">
-                {% for creative in creative %}
-                  {% if not creative.last_name == 'Vote'%}
-                    
-                      <div class="tile is-parent">
-                        <article class="tile is-child box notification is-white">
-                          <h1 class="title is-5 has-text-dark">{{ creative.first_name }} {{ creative.last_name }}</h1>
-                          <p class="subtitle is-3 has-text-dark">{{creative.roll_num}}</p>
-                          <p class="title is-5 has-text-dark is-italic"> "{{creative.agenda}}"</p>
-                          <figure class="image">
-                              <img class="is-rounded" src="{{ creative.pic_path}}">
-                          </figure>
-                          <br>
-                          <p class="subtitle has-text-dark has-text-weight-semibold">{{creative.batch}}</p>
-                          <p class="subtitle has-text-dark has-text-weight-semibold">{{creative.course}}, {{creative.department}}</p>
-                        </article>
-                      </div>
-                    
-                  {% endif %}    
-                {% endfor %}
-            </div>
-
-            <h1 class="title has-text-link">Social Media Coordinator Candidates</h1>
-              <br>
-              <div class="tile is-ancestor ">
-                {% for s_cord in s_cord %}
-                  {% if not s_cord.last_name == 'Vote'%}
-                    
-                      <div class="tile is-parent">
-                        <article class="tile is-child box notification is-white">
-                          <h1 class="title is-5 has-text-dark">{{ s_cord.first_name }} {{ s_cord.last_name }}</h1>
-                          <p class="subtitle is-3 has-text-dark">{{s_cord.roll_num}}</p>
-                          <p class="title is-5 has-text-dark is-italic"> "{{s_cord.agenda}}"</p>
-                          <figure class="image">
-                              <img class="is-rounded" src="{{ s_cord.pic_path}}">
-                          </figure>
-                          <br>
-                          <p class="subtitle has-text-dark has-text-weight-semibold">{{s_cord.batch}}</p>
-                          <p class="subtitle has-text-dark has-text-weight-semibold">{{s_cord.course}}, {{s_cord.department}}</p>
-                        </article>
-                      </div>
-                    
-                  {% endif %}    
-                {% endfor %}
-            </div>
-
-            <h1 class="title has-text-link">Photography Coordinator Candidates</h1>
-              <br>
-              <div class="tile is-ancestor ">
-                {% for p_cord in p_cord %}
-                  {% if not p_cord.last_name == 'Vote'%}
-                    
-                      <div class="tile is-parent">
-                        <article class="tile is-child box notification is-white">
-                          <h1 class="title is-5 has-text-dark">{{ p_cord.first_name }} {{ p_cord.last_name }}</h1>
-                          <p class="subtitle is-3 has-text-dark">{{p_cord.roll_num}}</p>
-                          <p class="title is-5 has-text-dark is-italic"> "{{p_cord.agenda}}"</p>
-                          <figure class="image">
-                              <img class="is-rounded" src="{{ p_cord.pic_path}}">
-                          </figure>
-                          <br>
-                          <p class="subtitle has-text-dark has-text-weight-semibold">{{p_cord.batch}}</p>
-                          <p class="subtitle has-text-dark has-text-weight-semibold">{{p_cord.course}}, {{p_cord.department}}</p>
-                        </article>
-                      </div>
-                    
-                  {% endif %}    
-                {% endfor %}
-            </div>
-
-            <h1 class="title has-text-link">Graphic Designer Candidates</h1>
-              <br>
-              <div class="tile is-ancestor ">
-                {% for graph in graph %}
-                  {% if not graph.last_name == 'Vote'%}
-                    
-                      <div class="tile is-parent">
-                        <article class="tile is-child box notification is-white">
-                          <h1 class="title is-5 has-text-dark">{{ graph.first_name }} {{ graph.last_name }}</h1>
-                          <p class="subtitle is-3 has-text-dark">{{graph.roll_num}}</p>
-                          <p class="title is-5 has-text-dark is-italic"> "{{graph.agenda}}"</p>
-                          <figure class="image">
-                              <img class="is-rounded" src="{{ graph.pic_path}}">
-                          </figure>
-                          <br>
-                          <p class="subtitle has-text-dark has-text-weight-semibold">{{graph.batch}}</p>
-                          <p class="subtitle has-text-dark has-text-weight-semibold">{{graph.course}}, {{graph.department}}</p>
-                        </article>
-                      </div>
-                    
-                  {% endif %}    
-                {% endfor %}
-            </div>
-
-            <h1 class="title has-text-link">Website Manager Candidates</h1>
-              <br>
-              <div class="tile is-ancestor ">
-                {% for website in website %}
-                  {% if not website.last_name == 'Vote'%}
-                    
-                      <div class="tile is-parent">
-                        <article class="tile is-child box notification is-white">
-                          <h1 class="title is-5 has-text-dark">{{ website.first_name }} {{ website.last_name }}</h1>
-                          <p class="subtitle is-3 has-text-dark">{{website.roll_num}}</p>
-                          <p class="title is-5 has-text-dark is-italic"> "{{website.agenda}}"</p>
-                          <figure class="image">
-                              <img class="is-rounded" src="{{ website.pic_path}} " >
-                          </figure>
-                          <br>
-                          <p class="subtitle has-text-dark has-text-weight-semibold">{{website.batch}}</p>
-                          <p class="subtitle has-text-dark has-text-weight-semibold">{{website.course}}, {{website.department}}</p>
-                        </article>
-                      </div>
-                    
-                  {% endif %}    
-                {% endfor %}
-            </div>
-        
+            
           </div>
           </div>
 
