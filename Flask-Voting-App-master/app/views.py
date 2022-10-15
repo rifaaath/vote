@@ -76,14 +76,16 @@ def poll_info():
         flash('You do not have required authorization')
         return redirect(url_for('auth.login'))
     else:
-        voted = []
+        votedDB = VotesModel.query
+        voted=[]
         not_voted = []
         user = UserModel.query
+        for i in votedDB:
+            u = UserModel.query.filter(UserModel.roll_num == i.roll_num).first()
+            voted.append(u)
         for i in user:
             u = VotesModel.query.filter(VotesModel.roll_num == i.roll_num).first()
-            if u:
-                voted.append(i)
-            else:
+            if not u:
                 not_voted.append(i)
             
         #for i in not_voted:
