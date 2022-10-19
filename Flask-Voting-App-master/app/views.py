@@ -158,10 +158,10 @@ def candidate_post():
 @app.route("/live_result")
 @login_required
 def live_result():
-    prez = CandidateModel.query.filter_by(post="President").all()
-    vice = CandidateModel.query.filter_by(post="Vice-President").all()
-    bc = CandidateModel.query.filter_by(post="Branch-Captain").all()
-    secretary = CandidateModel.query.filter_by(post="Secretary").all()
+    prez = CandidateModel.query.filter_by(post="Joint Secretary").all()
+    vice = CandidateModel.query.filter_by(post="Joint Cultural Secretary").all()
+    bc = CandidateModel.query.filter_by(post="Joint Sports Secretary").all()
+    secretary = CandidateModel.query.filter_by(post="Joint Technical Secretary").all()
 
     labels=[]
     data=[]
